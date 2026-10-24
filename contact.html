@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — ALI5 DIGITAL SOLUTIONS</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans, Inter, & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0B1120',
+                        deepslate: '#111827',
+                        cyanaccent: '#22D3EE',
+                        softwhite: '#F8FAFC',
+                        coolgray: '#94A3B8',
+                        subtleborder: '#263449'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-[#F8FAFC] antialiased selection:bg-cyanaccent selection:text-midnight">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#263449] transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyanaccent/20 to-cyanaccent/5 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent group-hover:scale-105 transition-transform">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-lg tracking-tight text-slate-900 dark:text-white block">ALI5 DIGITAL</span>
+                    <span class="text-[10px] tracking-widest text-cyanaccent uppercase font-semibold">Solutions</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-coolgray">
+                <a href="index.html" class="transition-colors hover:text-cyanaccent">Home</a>
+                <a href="about.html" class="transition-colors hover:text-cyanaccent">About</a>
+                <a href="index.html#services" class="transition-colors hover:text-cyanaccent">Services</a>
+                <a href="index.html#portfolio" class="transition-colors hover:text-cyanaccent">Portfolio</a>
+                <a href="contact.html" class="text-slate-900 dark:text-white transition-colors hover:text-cyanaccent">Contact</a>
+            </nav>
+
+            <!-- Theme Switcher & CTA Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-slate-700 dark:text-coolgray hover:text-cyanaccent transition-all flex items-center gap-2" title="Toggle Theme">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+                    <span class="text-xs font-mono font-semibold hidden lg:inline">
+                        <span class="hidden dark:inline">LIGHT</span>
+                        <span class="inline dark:hidden">DARK</span>
+                    </span>
+                </button>
+
+                <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-lg shadow-cyanaccent/10">
+                    Let's Work Together
+                </a>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="mobile-theme-toggle" class="p-2 rounded-xl bg-slate-200 dark:bg-deepslate text-slate-700 dark:text-coolgray">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <button id="menu-btn" class="p-2 text-slate-600 dark:text-coolgray hover:text-slate-900 dark:hover:text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-deepslate border-b border-slate-200 dark:border-subtleborder px-6 py-4 space-y-3">
+            <a href="index.html" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Home</a>
+            <a href="about.html" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">About</a>
+            <a href="index.html#services" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Services</a>
+            <a href="index.html#portfolio" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Portfolio</a>
+            <a href="contact.html" class="block text-slate-900 dark:text-white font-medium py-1">Contact</a>
+            <div class="pt-3 border-t border-slate-200 dark:border-subtleborder">
+                <a href="contact.html" class="block text-center w-full py-2.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm">
+                    Let's Work Together
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO HEADER -->
+    <section class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-200 dark:border-subtleborder bg-slate-100/50 dark:bg-deepslate/30">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyanaccent/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-cyan-600 dark:text-cyanaccent text-xs font-semibold tracking-wider uppercase font-mono mb-4">
+                <span class="w-2 h-2 rounded-full bg-cyanaccent animate-pulse"></span>
+                START A CONVERSATION
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                Let's Build Something <span class="text-cyan-600 dark:text-cyanaccent">Remarkable Together.</span>
+            </h1>
+
+            <p class="text-slate-600 dark:text-coolgray text-base sm:text-lg mt-4 leading-relaxed">
+                Have a project in mind, need a tailored website proposal, or want to discuss a custom web application? Reach out directly and let's bring your idea to life.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTACT SECTION -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Info Panel -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <h2 class="text-xs font-bold tracking-widest text-cyan-600 dark:text-cyanaccent uppercase mb-2">PROJECT INQUIRIES</h2>
+                        <h3 class="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">Direct Channels</h3>
+                        <p class="text-slate-600 dark:text-coolgray text-sm mt-2 leading-relaxed">
+                            Feel free to contact us via the project inquiry form or reach out directly using any of the communication channels below.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Email -->
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder shadow-sm hover:border-cyanaccent/50 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-500 dark:text-coolgray block uppercase tracking-wider">Direct Email</span>
+                                <a href="mailto:contact@ali5digital.com" class="text-slate-900 dark:text-white font-bold text-base hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">contact@ali5digital.com</a>
+                                <span class="text-[11px] text-slate-400 dark:text-coolgray/70 block mt-1">Typical response within 24 hours</span>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder shadow-sm hover:border-cyanaccent/50 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center shrink-0">
+                                <i data-lucide="message-square" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-500 dark:text-coolgray block uppercase tracking-wider">Instant WhatsApp Chat</span>
+                                <a href="https://wa.me/" target="_blank" class="text-slate-900 dark:text-white font-bold text-base hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">+234 (0) 800 000 0000</a>
+                                <span class="text-[11px] text-slate-400 dark:text-coolgray/70 block mt-1">Available Mon – Sat, 9am – 6pm</span>
+                            </div>
+                        </div>
+
+                        <!-- Availability Card -->
+                        <div class="p-5 rounded-2xl bg-slate-100 dark:bg-midnight/80 border border-slate-200 dark:border-subtleborder flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-900 dark:text-white block">Project Slots Open</span>
+                                    <span class="text-[11px] text-slate-500 dark:text-coolgray">Accepting clients for Q1/Q2</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono text-cyan-600 dark:text-cyanaccent font-semibold">AVAILABLE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Panel -->
+                <div class="lg:col-span-7 bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-10 shadow-2xl">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-coolgray uppercase tracking-wider mb-2">Your Full Name *</label>
+                                <input type="text" id="name" required class="w-full bg-slate-50 dark:bg-midnight border border-slate-300 dark:border-subtleborder rounded-xl px-4 py-3.5 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-cyanaccent transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-coolgray uppercase tracking-wider mb-2">Your Email Address *</label>
+                                <input type="email" id="email" required class="w-full bg-slate-50 dark:bg-midnight border border-slate-300 dark:border-subtleborder rounded-xl px-4 py-3.5 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-cyanaccent transition-colors" placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-coolgray uppercase tracking-wider mb-2">Project Classification</label>
+                                <select id="project-type" class="w-full bg-slate-50 dark:bg-midnight border border-slate-300 dark:border-subtleborder rounded-xl px-4 py-3.5 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-cyanaccent transition-colors">
+                                    <option value="business">Corporate / Business Website</option>
+                                    <option value="ecommerce">E-commerce Storefront</option>
+                                    <option value="realestate">Real Estate Portal</option>
+                                    <option value="automotive">Automotive Showcase</option>
+                                    <option value="logistics">Logistics & Freight Portal</option>
+                                    <option value="webapp">Custom Web Application</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-coolgray uppercase tracking-wider mb-2">Estimated Budget</label>
+                                <select id="budget" class="w-full bg-slate-50 dark:bg-midnight border border-slate-300 dark:border-subtleborder rounded-xl px-4 py-3.5 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-cyanaccent transition-colors">
+                                    <option value="standard">$1,000 – $3,000</option>
+                                    <option value="growth">$3,000 – $6,000</option>
+                                    <option value="enterprise">$6,000+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-coolgray uppercase tracking-wider mb-2">Project Details & Goals *</label>
+                            <textarea id="message" rows="5" required class="w-full bg-slate-50 dark:bg-midnight border border-slate-300 dark:border-subtleborder rounded-xl px-4 py-3.5 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-cyanaccent transition-colors resize-none" placeholder="Describe your business, main objectives, target timeline, or any specific feature requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-cyanaccent text-midnight font-extrabold text-sm hover:bg-cyanaccent/90 transition-all shadow-xl shadow-cyanaccent/15 flex items-center justify-center gap-2">
+                            Send Project Inquiry <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+
+                        <p id="form-notice" class="text-xs text-center text-slate-600 dark:text-coolgray hidden p-3 rounded-xl bg-cyanaccent/10 border border-cyanaccent/30 text-cyan-600 dark:text-cyanaccent">
+                            ✨ Thank you! Your message has been prepared. (Demo mode active — integrate with Web3Forms or EmailJS for live email delivery).
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS -->
+    <section class="py-20 bg-slate-100 dark:bg-deepslate/30 border-t border-b border-slate-200 dark:border-subtleborder">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 space-y-3">
+                <h2 class="text-xs font-bold tracking-widest text-cyan-600 dark:text-cyanaccent uppercase">CLEAR EXPECTATIONS</h2>
+                <h3 class="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">Frequently Asked Questions</h3>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-2xl p-6 shadow-sm">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 dark:text-white mb-2">What is the typical turnaround time for a website project?</h4>
+                    <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                        Standard business websites generally take between 2 to 4 weeks from discovery to final deployment. More complex platforms such as custom e-commerce stores or web applications typically take 4 to 8 weeks depending on scope.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-2xl p-6 shadow-sm">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 dark:text-white mb-2">Do you handle website deployment and hosting setup?</h4>
+                    <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                        Yes. We handle end-to-end production deployment, including cPanel static or dynamic hosting setup, SSL certificate activation, domain configuration, and performance checks before launch.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-2xl p-6 shadow-sm">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 dark:text-white mb-2">Can I update my website content after it goes live?</h4>
+                    <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                        Absolutely. If your project is built on a CMS like WordPress or Shopify, we provide training so your team can easily add new content, products, or blog posts independently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-100 dark:bg-deepslate border-t border-slate-200 dark:border-subtleborder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyan-600 dark:text-cyanaccent">
+                        <i data-lucide="cpu" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-slate-900 dark:text-white text-sm">ALI5 DIGITAL SOLUTIONS</span>
+                        <span class="text-[10px] text-slate-500 dark:text-coolgray block">Professional Website Development</span>
+                    </div>
+                </div>
+
+                <!-- Footer Nav Links -->
+                <div class="flex items-center gap-6 text-sm text-slate-600 dark:text-coolgray">
+                    <a href="index.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">About</a>
+                    <a href="index.html#services" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Services</a>
+                    <a href="index.html#portfolio" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Contact</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-slate-500 dark:text-coolgray text-center md:text-right">
+                    <p>&copy; <span id="current-year"></span> ALI5 Digital Solutions. All rights reserved.</p>
+                    <p class="text-[10px] mt-1 text-slate-400 dark:text-coolgray/70">Built with HTML5, Tailwind CSS, & Lucide Icons.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Theme Toggle Logic
+        const htmlRoot = document.getElementById('html-root');
+        const themeBtn = document.getElementById('theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+
+        function toggleDarkMode() {
+            if (htmlRoot.classList.contains('dark')) {
+                htmlRoot.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlRoot.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeBtn.addEventListener('click', toggleDarkMode);
+        mobileThemeBtn.addEventListener('click', toggleDarkMode);
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlRoot.classList.remove('dark');
+        } else {
+            htmlRoot.classList.add('dark');
+        }
+
+        // Contact Form Demo Submission Handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const notice = document.getElementById('form-notice');
+            notice.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                notice.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

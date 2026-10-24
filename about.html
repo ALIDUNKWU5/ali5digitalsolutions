@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — ALI5 DIGITAL SOLUTIONS</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans, Inter, & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0B1120',
+                        deepslate: '#111827',
+                        cyanaccent: '#22D3EE',
+                        softwhite: '#F8FAFC',
+                        coolgray: '#94A3B8',
+                        subtleborder: '#263449'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* 3D Laptop Perspective & Opening Animation Styles */
+        .perspective-container {
+            perspective: 1200px;
+        }
+
+        .laptop-lid {
+            transform-origin: bottom center;
+            transform: rotateX(-95deg);
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .laptop-lid.open {
+            transform: rotateX(0deg);
+        }
+
+        .screen-glow {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out 0.8s, box-shadow 1.5s ease-in-out 0.8s;
+        }
+
+        .laptop-lid.open .screen-glow {
+            opacity: 1;
+            box-shadow: 0 -20px 80px rgba(34, 211, 238, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-[#F8FAFC] antialiased selection:bg-cyanaccent selection:text-midnight">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#263449] transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyanaccent/20 to-cyanaccent/5 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent group-hover:scale-105 transition-transform">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-lg tracking-tight text-slate-900 dark:text-white block">ALI5 DIGITAL</span>
+                    <span class="text-[10px] tracking-widest text-cyanaccent uppercase font-semibold">Solutions</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-coolgray">
+                <a href="index.html" class="transition-colors hover:text-cyanaccent">Home</a>
+                <a href="about.html" class="text-slate-900 dark:text-white transition-colors hover:text-cyanaccent">About</a>
+                <a href="index.html#services" class="transition-colors hover:text-cyanaccent">Services</a>
+                <a href="index.html#portfolio" class="transition-colors hover:text-cyanaccent">Portfolio</a>
+                <a href="index.html#contact" class="transition-colors hover:text-cyanaccent">Contact</a>
+            </nav>
+
+            <!-- Theme Switcher & CTA Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-slate-700 dark:text-coolgray hover:text-cyanaccent transition-all flex items-center gap-2" title="Toggle Theme">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+                    <span class="text-xs font-mono font-semibold hidden lg:inline">
+                        <span class="hidden dark:inline">LIGHT</span>
+                        <span class="inline dark:hidden">DARK</span>
+                    </span>
+                </button>
+
+                <a href="index.html#contact" class="px-5 py-2.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-lg shadow-cyanaccent/10">
+                    Let's Work Together
+                </a>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="mobile-theme-toggle" class="p-2 rounded-xl bg-slate-200 dark:bg-deepslate text-slate-700 dark:text-coolgray">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <button id="menu-btn" class="p-2 text-slate-600 dark:text-coolgray hover:text-slate-900 dark:hover:text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-deepslate border-b border-slate-200 dark:border-subtleborder px-6 py-4 space-y-3">
+            <a href="index.html" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Home</a>
+            <a href="about.html" class="block text-slate-900 dark:text-white font-medium py-1">About</a>
+            <a href="index.html#services" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Services</a>
+            <a href="index.html#portfolio" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Portfolio</a>
+            <a href="index.html#contact" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Contact</a>
+            <div class="pt-3 border-t border-slate-200 dark:border-subtleborder">
+                <a href="index.html#contact" class="block text-center w-full py-2.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm">
+                    Let's Work Together
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH OPENING LAPTOP ANIMATION & LIGHT EFFECT -->
+    <section class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-200 dark:border-subtleborder bg-slate-100/50 dark:bg-deepslate/30">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-cyanaccent/15 blur-[160px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Narrative Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-cyan-600 dark:text-cyanaccent text-xs font-semibold tracking-wider uppercase font-mono">
+                        <span class="w-2 h-2 rounded-full bg-cyanaccent animate-pulse"></span>
+                        EST. 2023 • FOUNDER & LEAD DEVELOPER
+                    </div>
+
+                    <h1 class="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white">
+                        Transforming Code Into <span class="text-cyan-600 dark:text-cyanaccent">Exceptional Digital Products.</span>
+                    </h1>
+
+                    <p class="text-lg text-slate-600 dark:text-coolgray font-body leading-relaxed">
+                        Welcome to <strong>ALI5 Digital Solutions</strong>. Founded with a commitment to precision engineering and high-performance web architecture, we build websites that turn ideas into scalable digital experiences.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <a href="index.html#portfolio" class="px-6 py-3 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-lg shadow-cyanaccent/15 flex items-center gap-2">
+                            Explore Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="index.html#contact" class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-slate-900 dark:text-white font-semibold text-sm hover:border-cyanaccent/50 transition-all">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right 3D Front-Facing Opening Laptop Container -->
+                <div class="lg:col-span-6 flex justify-center perspective-container">
+                    <div class="relative w-full max-w-lg pt-8">
+                        
+                        <!-- Screen / Lid Section (Rotates Open) -->
+                        <div id="laptop-lid" class="laptop-lid relative w-full aspect-[16/10] bg-[#161D2F] border-4 border-[#2A364F] rounded-t-2xl shadow-2xl overflow-hidden flex flex-col justify-between">
+                            <!-- Camera Dot & Top Bezel -->
+                            <div class="bg-[#0D1322] px-4 py-1.5 flex items-center justify-center relative border-b border-[#263449]">
+                                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+                            </div>
+
+                            <!-- Screen Display Content (IDE / Code Visual) -->
+                            <div class="p-5 flex-1 bg-[#0B1120] screen-glow flex flex-col justify-between font-mono text-xs relative overflow-hidden">
+                                <!-- Neon Ambient Radial Glow inside Screen -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-cyanaccent/10 via-transparent to-blue-600/10 pointer-events-none"></div>
+
+                                <!-- Fake Code Editor Header -->
+                                <div class="flex items-center justify-between pb-3 border-b border-[#1E293B] text-[10px] text-coolgray">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                                        <span class="ml-2 text-cyanaccent font-semibold">ALI5_ENGINEERING.tsx</span>
+                                    </div>
+                                    <span>React 19 // Vite</span>
+                                </div>
+
+                                <!-- Code Lines -->
+                                <div class="space-y-1.5 py-3 text-[11px] leading-relaxed">
+                                    <div class="text-purple-400"><span class="text-pink-400">const</span> brand = <span class="text-cyanaccent">"ALI5 DIGITAL SOLUTIONS"</span>;</div>
+                                    <div class="text-slate-400"><span class="text-pink-400">const</span> founded = <span class="text-amber-400">2023</span>;</div>
+                                    <div class="text-slate-300"><span class="text-pink-400">function</span> <span class="text-blue-400">buildExcellence</span>() {</div>
+                                    <div class="pl-4 text-emerald-400">// Crafting clean code & responsive UI/UX</div>
+                                    <div class="pl-4 text-cyanaccent"><span class="text-pink-400">return</span> &lt;<span class="text-amber-300">ModernWebExperience</span> performance={<span class="text-cyanaccent">"100%"</span>} /&gt;;</div>
+                                    <div class="text-slate-300">}</div>
+                                </div>
+
+                                <!-- Screen Footer Status Bar -->
+                                <div class="pt-2 border-t border-[#1E293B] flex items-center justify-between text-[10px] text-cyanaccent font-bold">
+                                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> SYSTEM LIVE</span>
+                                    <span class="text-coolgray">Lagos, NG</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Laptop Base / Keyboard Deck -->
+                        <div class="relative w-[108%] -left-[4%] h-5 bg-gradient-to-b from-[#2A364F] to-[#161D2F] rounded-b-xl border-t border-[#3A4B6E] shadow-2xl flex items-center justify-center">
+                            <!-- Display Opening Notch -->
+                            <div class="w-16 h-1.5 bg-[#0D1322] rounded-b-md"></div>
+                        </div>
+                        <!-- Lower Desk Reflection Shadow -->
+                        <div class="w-[90%] mx-auto h-3 bg-cyanaccent/20 blur-md rounded-full mt-1"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NARRATIVE SECTION 1: THE ORIGIN STORY WITH IMAGE SLOT -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent text-xs font-mono font-bold uppercase">
+                        THE ORIGIN STORY
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+                        Sparked in 2023: Driven by Curiosity, Built for Precision.
+                    </h2>
+                    <p class="text-slate-600 dark:text-coolgray text-base leading-relaxed">
+                        My journey into web development and software engineering officially ignited in <strong>2023</strong>, driven by a deep fascination with how code transforms abstract ideas into interactive, functional digital experiences.
+                    </p>
+                    <p class="text-slate-600 dark:text-coolgray text-base leading-relaxed">
+                        What began as a curiosity about how websites were structured quickly evolved into an obsession with clean code architecture, user interface design, and performance engineering. Since then, I’ve dedicated myself to mastering modern frontend and backend technologies—turning every project into an opportunity to build digital products that are both visually striking and exceptionally reliable.
+                    </p>
+                </div>
+
+                <!-- Right Image Slot -->
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-subtleborder bg-slate-100 dark:bg-deepslate shadow-2xl group">
+                        <img src="./images/about-journey.jpg" alt="ALI5 Developer Journey" class="w-full h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'; document.getElementById('fallback-journey').style.display='flex';">
+                        
+                        <!-- Fallback Image Graphic -->
+                        <div id="fallback-journey" class="w-full h-80 lg:h-96 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-200 to-slate-100 dark:from-deepslate dark:to-midnight">
+                            <div class="w-16 h-16 rounded-2xl bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent mb-3">
+                                <i data-lucide="code" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="font-heading font-bold text-slate-900 dark:text-white">Developer Journey Image</h4>
+                            <p class="text-xs text-slate-500 dark:text-coolgray mt-1 max-w-xs">
+                                Upload your photo or coding workspace image to <code class="text-cyan-600 dark:text-cyanaccent">images/about-journey.jpg</code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NARRATIVE SECTION 2: THE VISION & WORKSPACE WITH IMAGE SLOT -->
+    <section class="py-24 bg-slate-100 dark:bg-deepslate/40 border-t border-b border-slate-200 dark:border-subtleborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Image Slot -->
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-subtleborder bg-slate-100 dark:bg-deepslate shadow-2xl group">
+                        <img src="./images/about-vision.jpg" alt="ALI5 Vision & Studio" class="w-full h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'; document.getElementById('fallback-vision').style.display='flex';">
+                        
+                        <!-- Fallback Image Graphic -->
+                        <div id="fallback-vision" class="w-full h-80 lg:h-96 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-200 to-slate-100 dark:from-deepslate dark:to-midnight">
+                            <div class="w-16 h-16 rounded-2xl bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent mb-3">
+                                <i data-lucide="compass" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="font-heading font-bold text-slate-900 dark:text-white">Studio Vision Image</h4>
+                            <p class="text-xs text-slate-500 dark:text-coolgray mt-1 max-w-xs">
+                                Upload your studio photo or project image to <code class="text-cyan-600 dark:text-cyanaccent">images/about-vision.jpg</code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Text Column -->
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent text-xs font-mono font-bold uppercase">
+                        CORE BRAND MISSION
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+                        The Vision Behind ALI5 Digital Solutions.
+                    </h2>
+                    <p class="text-slate-600 dark:text-coolgray text-base leading-relaxed">
+                        ALI5 Digital Solutions was founded on a simple premise: businesses deserve high-performance digital products without the bloated costs, endless delays, or generic templates typical of traditional agencies.
+                    </p>
+                    <p class="text-slate-600 dark:text-coolgray text-base leading-relaxed">
+                        Our mission is to bridge the gap between aesthetic excellence and technical engineering—delivering bespoke websites built with precision, transparency, and scalability.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY & THREE PILLARS -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="text-xs font-bold tracking-widest text-cyan-600 dark:text-cyanaccent uppercase">How We Operate</h2>
+                <h3 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Our Engineering Philosophy</h3>
+                <p class="text-slate-600 dark:text-coolgray text-sm">Every line of code and every layout decision is guided by clear, uncompromising priorities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-white dark:bg-midnight border border-slate-200 dark:border-subtleborder rounded-2xl p-8 space-y-4 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl text-slate-900 dark:text-white">Performance & Speed</h4>
+                    <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                        Our #1 priority is clean code in the editor (utilizing modern tools like VS Code, React, TypeScript, and Tailwind CSS) that translates directly to lightning-fast load times and seamless user journeys.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white dark:bg-midnight border border-slate-200 dark:border-subtleborder rounded-2xl p-8 space-y-4 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl text-slate-900 dark:text-white">Specialized Expertise</h4>
+                    <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                        We build bespoke digital products tailored for corporate enterprises, high-converting e-commerce stores, real estate property portals, automotive configurators, and custom web applications.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white dark:bg-midnight border border-slate-200 dark:border-subtleborder rounded-2xl p-8 space-y-4 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl text-slate-900 dark:text-white">End-to-End Reliability</h4>
+                    <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                        Operating out of a modern developer environment, every project is managed seamlessly from initial discovery and wireframing to secure cPanel or cloud production deployment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="py-24 bg-slate-100 dark:bg-deepslate/30 border-t border-slate-200 dark:border-subtleborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-slate-200 dark:from-deepslate to-white dark:to-midnight border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-xl">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyanaccent/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-2xl mx-auto space-y-6 relative z-10">
+                    <h3 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Ready to Start Your Next Project?</h3>
+                    <p class="text-slate-600 dark:text-coolgray text-sm sm:text-base leading-relaxed">
+                        Let's discuss how ALI5 Digital Solutions can help build a custom website tailored to your business objectives.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+                        <a href="index.html#contact" class="px-7 py-3.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-xl shadow-cyanaccent/15">
+                            Get in Touch
+                        </a>
+                        <a href="index.html#portfolio" class="px-7 py-3.5 rounded-xl bg-white dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-slate-900 dark:text-white font-semibold text-sm hover:border-cyanaccent/50 transition-all">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-100 dark:bg-deepslate border-t border-slate-200 dark:border-subtleborder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyan-600 dark:text-cyanaccent">
+                        <i data-lucide="cpu" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-slate-900 dark:text-white text-sm">ALI5 DIGITAL SOLUTIONS</span>
+                        <span class="text-[10px] text-slate-500 dark:text-coolgray block">Professional Website Development</span>
+                    </div>
+                </div>
+
+                <!-- Footer Nav Links -->
+                <div class="flex items-center gap-6 text-sm text-slate-600 dark:text-coolgray">
+                    <a href="index.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">About</a>
+                    <a href="index.html#services" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Services</a>
+                    <a href="index.html#portfolio" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Portfolio</a>
+                    <a href="index.html#contact" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Contact</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-slate-500 dark:text-coolgray text-center md:text-right">
+                    <p>&copy; <span id="current-year"></span> ALI5 Digital Solutions. All rights reserved.</p>
+                    <p class="text-[10px] mt-1 text-slate-400 dark:text-coolgray/70">Built with HTML5, Tailwind CSS, & Lucide Icons.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC & ANIMATION HANDLER -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Theme Toggle Logic
+        const htmlRoot = document.getElementById('html-root');
+        const themeBtn = document.getElementById('theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+
+        function toggleDarkMode() {
+            if (htmlRoot.classList.contains('dark')) {
+                htmlRoot.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlRoot.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeBtn.addEventListener('click', toggleDarkMode);
+        mobileThemeBtn.addEventListener('click', toggleDarkMode);
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlRoot.classList.remove('dark');
+        } else {
+            htmlRoot.classList.add('dark');
+        }
+
+        // TRIGGER 3D LAPTOP OPENING ANIMATION ON PAGE LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const laptopLid = document.getElementById('laptop-lid');
+                if (laptopLid) {
+                    laptopLid.classList.add('open');
+                }
+            }, 300);
+        });
+    </script>
+</body>
+</html>

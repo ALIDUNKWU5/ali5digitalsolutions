@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services — ALI5 DIGITAL SOLUTIONS</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans, Inter, & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0B1120',
+                        deepslate: '#111827',
+                        cyanaccent: '#22D3EE',
+                        softwhite: '#F8FAFC',
+                        coolgray: '#94A3B8',
+                        subtleborder: '#263449'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-[#F8FAFC] antialiased selection:bg-cyanaccent selection:text-midnight">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#263449] transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyanaccent/20 to-cyanaccent/5 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent group-hover:scale-105 transition-transform">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-lg tracking-tight text-slate-900 dark:text-white block">ALI5 DIGITAL</span>
+                    <span class="text-[10px] tracking-widest text-cyanaccent uppercase font-semibold">Solutions</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-coolgray">
+                <a href="index.html" class="transition-colors hover:text-cyanaccent">Home</a>
+                <a href="about.html" class="transition-colors hover:text-cyanaccent">About</a>
+                <a href="services.html" class="text-slate-900 dark:text-white transition-colors hover:text-cyanaccent">Services</a>
+                <a href="index.html#portfolio" class="transition-colors hover:text-cyanaccent">Portfolio</a>
+                <a href="contact.html" class="transition-colors hover:text-cyanaccent">Contact</a>
+            </nav>
+
+            <!-- Theme Switcher & CTA Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-slate-700 dark:text-coolgray hover:text-cyanaccent transition-all flex items-center gap-2" title="Toggle Theme">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+                    <span class="text-xs font-mono font-semibold hidden lg:inline">
+                        <span class="hidden dark:inline">LIGHT</span>
+                        <span class="inline dark:hidden">DARK</span>
+                    </span>
+                </button>
+
+                <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-lg shadow-cyanaccent/10">
+                    Let's Work Together
+                </a>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="mobile-theme-toggle" class="p-2 rounded-xl bg-slate-200 dark:bg-deepslate text-slate-700 dark:text-coolgray">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <button id="menu-btn" class="p-2 text-slate-600 dark:text-coolgray hover:text-slate-900 dark:hover:text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-deepslate border-b border-slate-200 dark:border-subtleborder px-6 py-4 space-y-3">
+            <a href="index.html" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Home</a>
+            <a href="about.html" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">About</a>
+            <a href="services.html" class="block text-slate-900 dark:text-white font-medium py-1">Services</a>
+            <a href="index.html#portfolio" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Portfolio</a>
+            <a href="contact.html" class="block text-slate-600 dark:text-coolgray hover:text-white font-medium py-1">Contact</a>
+            <div class="pt-3 border-t border-slate-200 dark:border-subtleborder">
+                <a href="contact.html" class="block text-center w-full py-2.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm">
+                    Let's Work Together
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO HEADER -->
+    <section class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-200 dark:border-subtleborder bg-slate-100/50 dark:bg-deepslate/30">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyanaccent/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200 dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-cyan-600 dark:text-cyanaccent text-xs font-semibold tracking-wider uppercase font-mono mb-4">
+                <span class="w-2 h-2 rounded-full bg-cyanaccent animate-pulse"></span>
+                HIGH-PERFORMANCE SOLUTIONS
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                Tailored Web Engineering For <span class="text-cyan-600 dark:text-cyanaccent">Growing Businesses.</span>
+            </h1>
+
+            <p class="text-slate-600 dark:text-coolgray text-base sm:text-lg mt-4 leading-relaxed">
+                From bespoke corporate websites and high-converting e-commerce stores to custom web applications and CMS implementations, we deliver pixel-perfect digital experiences.
+            </p>
+        </div>
+    </section>
+
+    <!-- DETAILED SERVICES GRID -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-16">
+
+                <!-- Service 1: Business & Corporate Websites -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                            <i data-lucide="globe" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">Business & Corporate Websites</h2>
+                        <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                            A business website is often the first touchpoint for prospective clients and partners. We design and develop custom corporate portals, agency showcases, and professional sites engineered for credibility, seamless navigation, and high visitor retention.
+                        </p>
+                        
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">KEY DELIVERABLES:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-coolgray font-mono">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Custom UI/UX Design System</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> 100% Mobile Responsive Layouts</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> SEO & Speed Optimization</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Inquiry & Lead Capture Forms</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-md">
+                                Order Corporate Website <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-slate-50 dark:bg-midnight p-6 rounded-2xl border border-slate-200 dark:border-subtleborder space-y-4">
+                        <span class="text-xs font-mono font-bold text-cyan-600 dark:text-cyanaccent block uppercase">TECH STACK UTILIZED</span>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">React 19</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">TypeScript</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">WordPress</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-subtleborder">
+                            <span class="text-xs text-slate-500 dark:text-coolgray block">Ideal For:</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">Startups, Agencies, Consultancies, Real Estate Brokerages, & Corporate HQs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: E-commerce Development -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                            <i data-lucide="shopping-bag" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">E-commerce Storefronts & Platforms</h2>
+                        <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                            Turn online visitors into loyal buyers with high-converting e-commerce web applications. We build streamlined product catalogs, drawer cart interfaces, secure payment gateway integrations, and multi-currency storefronts.
+                        </p>
+                        
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">KEY DELIVERABLES:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-coolgray font-mono">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Product Catalog & Category Filters</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Cart Drawer & Fast Checkout</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Payment Gateway Integrations</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Inventory & Variant Tracking</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-md">
+                                Order E-commerce Store <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-slate-50 dark:bg-midnight p-6 rounded-2xl border border-slate-200 dark:border-subtleborder space-y-4">
+                        <span class="text-xs font-mono font-bold text-cyan-600 dark:text-cyanaccent block uppercase">TECH STACK UTILIZED</span>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Shopify Storefront</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">WooCommerce</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Liquid</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Stripe / Paystack</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-subtleborder">
+                            <span class="text-xs text-slate-500 dark:text-coolgray block">Ideal For:</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">Retail Brands, Apparel Stores, Automotive Parts Suppliers, & Digital Goods</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: WordPress & CMS Development -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">WordPress & Custom CMS Solutions</h2>
+                        <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                            Empower your team with a flexible Content Management System (CMS) that allows you to easily update text, add new articles, manage portfolio items, or edit product specs without writing a single line of code.
+                        </p>
+                        
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">KEY DELIVERABLES:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-coolgray font-mono">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Custom WordPress Theme Development</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Admin Panel Training & Guide</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Security & Anti-Malware Hardening</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Fast Caching & Asset Compression</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-md">
+                                Request CMS Website <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-slate-50 dark:bg-midnight p-6 rounded-2xl border border-slate-200 dark:border-subtleborder space-y-4">
+                        <span class="text-xs font-mono font-bold text-cyan-600 dark:text-cyanaccent block uppercase">TECH STACK UTILIZED</span>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">WordPress 6+</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">PHP 8</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">MySQL</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Webflow</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-subtleborder">
+                            <span class="text-xs text-slate-500 dark:text-coolgray block">Ideal For:</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">Content Publishers, Blogs, Service Providers, & In-House Marketing Teams</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Landing Pages & Custom Web Applications -->
+                <div class="bg-white dark:bg-deepslate border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyanaccent/10 text-cyan-600 dark:text-cyanaccent flex items-center justify-center">
+                            <i data-lucide="smartphone" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">High-Conversion Landing Pages & Web Apps</h2>
+                        <p class="text-slate-600 dark:text-coolgray text-sm leading-relaxed">
+                            Need a dedicated campaign landing page, SaaS dashboard, booking calculator, or custom web tool? We construct high-converting landing pages and dynamic web apps focused on rapid load speeds and high user engagement.
+                        </p>
+                        
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">KEY DELIVERABLES:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-coolgray font-mono">
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Single-Page Conversion Funnels</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Interactive Calculators & Tools</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> REST API & Webhook Integrations</div>
+                                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyanaccent"></i> Smooth Tactile UI Animations</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-md">
+                                Request Web Application <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-slate-50 dark:bg-midnight p-6 rounded-2xl border border-slate-200 dark:border-subtleborder space-y-4">
+                        <span class="text-xs font-mono font-bold text-cyan-600 dark:text-cyanaccent block uppercase">TECH STACK UTILIZED</span>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">React</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Node.js</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">TypeScript</span>
+                            <span class="px-3 py-1 bg-white dark:bg-deepslate text-slate-700 dark:text-coolgray rounded-lg border border-slate-200 dark:border-subtleborder">Express API</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-subtleborder">
+                            <span class="text-xs text-slate-500 dark:text-coolgray block">Ideal For:</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">Product Launches, SaaS Tools, Booking Systems, & Marketing Campaigns</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="py-24 bg-slate-100 dark:bg-deepslate/30 border-t border-slate-200 dark:border-subtleborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-slate-200 dark:from-deepslate to-white dark:to-midnight border border-slate-200 dark:border-subtleborder rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-xl">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyanaccent/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-2xl mx-auto space-y-6 relative z-10">
+                    <h3 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Ready to Elevate Your Web Presence?</h3>
+                    <p class="text-slate-600 dark:text-coolgray text-sm sm:text-base leading-relaxed">
+                        Let's discuss how ALI5 Digital Solutions can help build a custom website tailored to your business objectives.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+                        <a href="contact.html" class="px-7 py-3.5 rounded-xl bg-cyanaccent text-midnight font-bold text-sm hover:bg-cyanaccent/90 transition-all shadow-xl shadow-cyanaccent/15">
+                            Get in Touch
+                        </a>
+                        <a href="index.html#portfolio" class="px-7 py-3.5 rounded-xl bg-white dark:bg-deepslate border border-slate-300 dark:border-subtleborder text-slate-900 dark:text-white font-semibold text-sm hover:border-cyanaccent/50 transition-all">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-100 dark:bg-deepslate border-t border-slate-200 dark:border-subtleborder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyan-600 dark:text-cyanaccent">
+                        <i data-lucide="cpu" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-slate-900 dark:text-white text-sm">ALI5 DIGITAL SOLUTIONS</span>
+                        <span class="text-[10px] text-slate-500 dark:text-coolgray block">Professional Website Development</span>
+                    </div>
+                </div>
+
+                <!-- Footer Nav Links -->
+                <div class="flex items-center gap-6 text-sm text-slate-600 dark:text-coolgray">
+                    <a href="index.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">About</a>
+                    <a href="services.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Services</a>
+                    <a href="index.html#portfolio" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-cyan-600 dark:hover:text-cyanaccent transition-colors">Contact</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-slate-500 dark:text-coolgray text-center md:text-right">
+                    <p>&copy; <span id="current-year"></span> ALI5 Digital Solutions. All rights reserved.</p>
+                    <p class="text-[10px] mt-1 text-slate-400 dark:text-coolgray/70">Built with HTML5, Tailwind CSS, & Lucide Icons.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Theme Toggle Logic
+        const htmlRoot = document.getElementById('html-root');
+        const themeBtn = document.getElementById('theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+
+        function toggleDarkMode() {
+            if (htmlRoot.classList.contains('dark')) {
+                htmlRoot.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlRoot.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeBtn.addEventListener('click', toggleDarkMode);
+        mobileThemeBtn.addEventListener('click', toggleDarkMode);
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlRoot.classList.remove('dark');
+        } else {
+            htmlRoot.classList.add('dark');
+        }
+    </script>
+</body>
+</html>
